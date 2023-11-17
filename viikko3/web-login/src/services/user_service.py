@@ -40,8 +40,8 @@ class UserService:
     def validate(self, username, password, password_confirmation):
         if not username or not password:
             raise UserInputError("Username and password are required")
-    
-        if password_confirmation is False:
+
+        if password_confirmation != password:
             raise UserInputError("Passwords do not match.")
 
         username_regex = '^[a-z]{3,}$'
